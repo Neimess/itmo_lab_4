@@ -1,0 +1,47 @@
+name: itmo_lab_4
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - v*
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  linter:
+    name: Linter
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Python Dependencies
+        uses: ./.github/actions/common-steps
+
+      - name: Run Linter
+        run: uv run ruff check . --no-cache
+
+  mypy:
+    name: MyPy [Optional]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Python Dependencies
+        uses: ./.github/actions/common-steps
+      - name: Type Checker [Optional]
+        run: uv run mypy src
+
+  tests:
+    name: Pytest
+    needs: [linter]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Python Dependencies
+        uses: ./.github/actions/common-steps
+      - name: Run tests
+        run: uv run pytest tests -s -vv --color=yes

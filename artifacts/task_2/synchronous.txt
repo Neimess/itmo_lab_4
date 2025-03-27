@@ -1,0 +1,5 @@
+Attempt 1: Params — a=0, b=3.14, iters=10000000, workers=1 → 0.8798 seconds
+Attempt 2: Params — a=0, b=3.14, iters=10000000, workers=1 → 0.8911 seconds
+Attempt 3: Params — a=0, b=3.14, iters=10000000, workers=1 → 0.8801 seconds
+
+Average time over 3 attempts: 0.8837 seconds

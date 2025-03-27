@@ -1,0 +1,3 @@
+Attempt 3 threading took 0.8327 seconds for 10 runs of fibonacci(100000)
+
+Average time for threading: 0.8337 seconds over 3 attemps
