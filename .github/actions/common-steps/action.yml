@@ -19,4 +19,5 @@ runs:
       run: |
         uv sync --dev
         echo -e "\033[32mDependencies installed successfully\033[0m"
+        echo "PYTHONPATH=$PWD" >> $GITHUB_ENV
       shell: bash
